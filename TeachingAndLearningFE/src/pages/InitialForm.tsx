@@ -1,78 +1,36 @@
-import { Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import learning from "./../assets/images/studentImages/learning.png";
 import teacherIcon from "./../assets/images/teacherImages/teachersIcon.png";
+import "../assets/css/FormPages.css";
+import { useNavigate } from "react-router-dom";
+
+const STUDENT_CREATION_FORM_PAGE = "/student/log-in/";
+const TEACHER_CREATION_FORM_PAGE = "";
 
 function InitialForm() {
+  const navigate = useNavigate();
+
+  const studentFormNavigate = () => {
+    navigate(STUDENT_CREATION_FORM_PAGE);
+  };
+
+  const teacherFormNavigate = () => {
+    navigate(TEACHER_CREATION_FORM_PAGE);
+  };
   return (
-    <div>
-      <div
-        style={{
-          position: "absolute",
-          left: "24%",
-          top: "25%",
-          transform: "translate(-10%, -90%)", //Left and Up positions absolute to the screen dimensions(Not considering the div component)
-          border: "5px double #388e3c",
-          borderRadius: "10px",
-          padding: "20px",
-        }}
-      >
-        <h1>Online Teaching And Learning Platform</h1>
+    <div className="custom-background">
+      <div className="text-container">
+        <h2>Welcome To Online Teaching & Learning Platform</h2>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          marginLeft: "425px",
-        }}
-      >
-        <Col
-          style={{
-            marginRight: "20px",
-            marginTop: "150px",
-            border: "2px solid #1e3a8a",
-            borderRadius: "10px",
-            padding: "20px",
-          }}
-        >
-          <Card>
-            <Card.Title style={{ marginLeft: "100px" }}>
-              <h2>
-                <b>Student</b>
-              </h2>
-            </Card.Title>
-            <Card.Text style={{ marginLeft: "100px" }}>Student LogIn</Card.Text>
-            <Card.Body>
-              <img src={learning} alt="My Image" height={300} width={300} />
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col
-          style={{
-            marginTop: "150px",
-            border: "2px solid #607d8b",
-            borderRadius: "10px",
-            padding: "20px",
-          }}
-        >
-          <Card>
-            <Card.Title style={{ marginLeft: "100px" }}>
-              <h2>
-                <b>Teacher</b>
-              </h2>
-            </Card.Title>
-            <Card.Text style={{ marginLeft: "100px" }}>Teacher LogIn</Card.Text>
-            <Card.Body>
-              <img
-                src={teacherIcon}
-                alt="Teacher Icon"
-                height={300}
-                width={300}
-              />
-            </Card.Body>
-          </Card>
-        </Col>
+      <div className="initial-form-container">
+        <div className="login-option" onClick={() => studentFormNavigate()}>
+          <img src={learning} alt="Student_Image" />
+          <span>Student SignUp</span>
+        </div>
+        <div className="login-option" onClick={() => teacherFormNavigate()}>
+          <img src={teacherIcon} alt="Teacher_Image" />
+          <span>Teacher SignUp</span>
+        </div>
       </div>
     </div>
   );
