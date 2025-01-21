@@ -13,8 +13,8 @@ export interface StudentCreationType {
   age: string;
   email: string;
   whatsappNumber: string;
-  medium: languageMedium | null;
-  eduLevel: EduLevel | null;
+  languageMedium: languageMedium | null;
+  educationLevel: EduLevel | null;
   alStream: AlSubjectStream | null;
   olFirstCategory: OlFirstCategory | null;
   olSecondcategory: OlSecondCategory | null;

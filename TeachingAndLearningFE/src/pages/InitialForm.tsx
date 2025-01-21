@@ -3,6 +3,7 @@ import learning from "./../assets/images/studentImages/learning.png";
 import teacherIcon from "./../assets/images/teacherImages/teachersIcon.png";
 import "../assets/css/FormPages.css";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/navBar/NavBar";
 
 const STUDENT_CREATION_FORM_PAGE = "/student/log-in/";
 const TEACHER_CREATION_FORM_PAGE = "";
@@ -19,6 +20,7 @@ function InitialForm() {
   };
   return (
     <div className="custom-background">
+      <NavBar />
       <div className="text-container">
         <h2>Welcome To Online Teaching & Learning Platform</h2>
       </div>

@@ -1,4 +1,4 @@
-export type languageMedium =
+export type LanguageMedium =
   | "ENGLISH MEDIUM"
   | "SINHALA MEDIUM"
   | "TAMIL MEDIUM";
