@@ -1,24 +1,18 @@
-import "../../assets/css/LandingPage.css";
-import Logo from "../../assets/images/logos/Logo.webp";
-import { BsCart2 } from "react-icons/bs";
-import { HiOutlineBars3 } from "react-icons/hi2";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import LoginIcon from "@mui/icons-material/Login";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import PeopleIcon from "@mui/icons-material/People";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import PeopleIcon from "@mui/icons-material/People";
-import LoginIcon from "@mui/icons-material/Login";
+import { HiOutlineBars3 } from "react-icons/hi2";
+import "../../assets/css/LandingPage.css";
+import Logo from "../../assets/images/logos/Logo.webp";
 
 import { useState } from "react";
 
@@ -56,7 +50,7 @@ const NavBar = () => {
         <img src={Logo} alt="T&L_LOGO" />
       </div>
       <div className="navbar-links-container">
-        <a href="">Home</a>
+        <a href="/">Home</a>
         <a href="">About</a>
         <a href="">Service</a>
         <a href="">Contact</a>

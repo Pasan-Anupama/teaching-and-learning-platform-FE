@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../components/navBar/NavBar";
 
 const STUDENT_CREATION_FORM_PAGE = "/student/log-in/";
-const TEACHER_CREATION_FORM_PAGE = "";
+const TEACHER_CREATION_FORM_PAGE = "/teacher/log-in/";
 
 function InitialForm() {
   const navigate = useNavigate();

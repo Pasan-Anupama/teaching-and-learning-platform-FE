@@ -219,7 +219,7 @@ const StudentLoginForm = () => {
         <Card className="initial-form-container">
           <Card.Header>
             <Card.Title>
-              <h2>Student Login Form</h2>
+              <h2>Student Sign Up Form</h2>
             </Card.Title>
           </Card.Header>
           <Card.Body>

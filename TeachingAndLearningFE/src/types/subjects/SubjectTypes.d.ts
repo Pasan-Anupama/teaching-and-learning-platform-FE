@@ -12,6 +12,42 @@ export type AlSubjectStream =
   | "ARTS STREAM"
   | "TECHNOLOGY STREAM";
 
+export type PhysicalScienceSubjects =
+  | "PURE MATHEMATICS"
+  | "APPLIED MATHEMATICS"
+  | "PHYSICS"
+  | "CHEMISTRY";
+
+export type BioScienceSubjects = "BIOLOGY" | "PHYSICS" | "CHEMISTRY";
+
+export type CommerceSubjects =
+  | "BUSINESS STUDIES"
+  | "ACCOUNTING"
+  | "ECONOMICS"
+  | "ICT"
+  | "BUSINESS STATISTICS"
+  | "ENGLISH LITERATURE"
+  | "POLITICAL SCIENCE";
+
+export type ArtSubjects =
+  | "SINHALA"
+  | "LOGIC"
+  | "POLITICAL SCIENCE"
+  | "GEOGRAPHY"
+  | "BUDDHIST CIVILIZATION"
+  | "ENGLISH LITERARTURE"
+  | "JAPANESE"
+  | "HISTORY"
+  | "DRAMA";
+
+export type TechnologySubjects =
+  | "ENGINEERING TECHNOLOGY"
+  | "SCIENCE FOR TECHNOLOGY"
+  | "MATHEMATICS"
+  | "ICT"
+  | "BIO SYSTEMS TECHNOLOGY"
+  | "AGRICULTURE";
+
 export type OlFirstCategory =
   | "BUSINESS & ACCOUNTING STUDIES"
   | "GEOGRAPHY"
@@ -55,3 +91,18 @@ export type OlThirdCategory =
   | "DESIGN & MECHANICAL TECHNOLOGY"
   | "DESIGN, ELECTRICAL & ELECTRONIC TECHNOLOGY"
   | "ELECTRONIC WRITING & SHORTHAND";
+
+export type OlSubjcts =
+  | OlFirstCategory
+  | OlSecondCategory
+  | OlThirdCategory
+  | "SINHALA LANGUAGE"
+  | "TAMIL LANGUAGE "
+  | "ENGLISH LANGUAGE"
+  | "MATHEMATICS"
+  | "SCIENCE"
+  | "HISTORY"
+  | "BUDDHISM"
+  | "HINDUISM"
+  | "ISLAM"
+  | "CHRISTIANITY";
