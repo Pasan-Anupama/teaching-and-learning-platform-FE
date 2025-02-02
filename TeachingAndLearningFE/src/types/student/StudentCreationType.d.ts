@@ -17,7 +17,7 @@ export interface StudentCreationType {
   educationLevel: EduLevel | null;
   alStream: AlSubjectStream | null;
   olFirstCategory: OlFirstCategory | null;
-  olSecondcategory: OlSecondCategory | null;
-  olThirdCategiry: OlThirdCategory | null;
+  olSecondCategory: OlSecondCategory | null;
+  olThirdCategory: OlThirdCategory | null;
   s3Key: string;
 }

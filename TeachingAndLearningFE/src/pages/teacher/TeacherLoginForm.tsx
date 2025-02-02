@@ -15,11 +15,13 @@ import {
   TechnologySubjects,
 } from "../../types/subjects/SubjectTypes";
 import NavBar from "../../components/navBar/NavBar";
-import { Toaster } from "sonner";
+import { Toaster, toast } from "sonner";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import "../../assets/css/FormPages.css";
 import { OnChangeText } from "../../validation/onChange/OnChanger";
 import Select from "react-select";
+import axiosPrivate from "../../api/Axios";
+import { AxiosError } from "axios";
 
 const initialFormValues: TeacherCreationType = {
   name: "",
@@ -261,15 +263,38 @@ const olSubjectOptions: OlSubjectsOption[] = [
   { label: "Christian", value: "CHRISTIANITY" },
 ];
 
-const TEACHER_CREAION_URL = "";
+const TEACHER_CREAION_URL = "/teacher/create";
 
 const TeacherLoginForm = () => {
   const [formData, setFormData] =
     useState<TeacherCreationType>(initialFormValues);
 
+  const axios = axiosPrivate;
+
   const handleReset = () => {
     setFormData(initialFormValues);
   };
+
+  const sendToApproval = async () => {
+    try {
+      await axios.post(TEACHER_CREAION_URL, formData);
+      toast.success("Teacher Details Send to Approval Successfully !");
+    } catch (error: unknown) {
+      const axiosError = error as AxiosError;
+      if (axiosError.response) {
+        const status = axiosError.response.status;
+
+        if (status === 400 || status === 404) {
+          toast.error("No Server Response !");
+        } else if (status === 500) {
+          toast.error("Internal Server Error: Please try again later!");
+        }
+      } else {
+        toast.error("Network Error: Please check your internet connection!");
+      }
+    }
+  };
+
   return (
     <>
       <div className="custom-background">
@@ -565,7 +590,9 @@ const TeacherLoginForm = () => {
           </Card.Body>
         </Card>
         <div className="button-placing">
-          <Button className="submit-button">Send To Approval</Button>
+          <Button className="submit-button" onClick={() => sendToApproval()}>
+            Send To Approval
+          </Button>
           <Button className="reset-button" onClick={() => handleReset()}>
             Reset
           </Button>

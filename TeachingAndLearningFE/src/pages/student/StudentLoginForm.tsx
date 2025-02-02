@@ -14,9 +14,9 @@ import {
   OlSecondCategory,
   OlThirdCategory,
 } from "../../types/subjects/SubjectTypes";
-import  { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { Toaster, toast } from "sonner";
-import useAxios from "../../api/Axios";
+import axiosPrivate from "../../api/Axios";
 
 const initialFormValues: StudentCreationType = {
   name: "",
@@ -27,8 +27,8 @@ const initialFormValues: StudentCreationType = {
   educationLevel: null,
   alStream: null,
   olFirstCategory: null,
-  olSecondcategory: null,
-  olThirdCategiry: null,
+  olSecondCategory: null,
+  olThirdCategory: null,
   s3Key: "",
 };
 
@@ -183,7 +183,7 @@ const olThirdCategiryOptions: OlThirdCategiryOption[] = [
 const STUDENT_DETAILS_ADD_URL = "/student/create";
 
 const StudentLoginForm = () => {
-  const axios = useAxios;
+  const axios = axiosPrivate;
   const [formData, setFormData] =
     useState<StudentCreationType>(initialFormValues);
 
@@ -382,12 +382,12 @@ const StudentLoginForm = () => {
                           options={olSecondCategoryOptions}
                           value={olSecondCategoryOptions.find(
                             (option) =>
-                              option.value === formData.olSecondcategory
+                              option.value === formData.olSecondCategory
                           )}
                           onChange={(selectedOption) =>
                             setFormData({
                               ...formData,
-                              olSecondcategory: selectedOption?.value || null,
+                              olSecondCategory: selectedOption?.value || null,
                             })
                           }
                         />
@@ -403,12 +403,12 @@ const StudentLoginForm = () => {
                           options={olThirdCategiryOptions}
                           value={olThirdCategiryOptions.find(
                             (option) =>
-                              option.value === formData.olThirdCategiry
+                              option.value === formData.olThirdCategory
                           )}
                           onChange={(selectedOption) =>
                             setFormData({
                               ...formData,
-                              olThirdCategiry: selectedOption?.value || null,
+                              olThirdCategory: selectedOption?.value || null,
                             })
                           }
                         />

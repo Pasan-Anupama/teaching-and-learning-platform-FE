@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const useAxios = axios.create({
+const axiosPrivate = axios.create({
   baseURL: "http://localhost:8080",
 });
 
-export default useAxios;
+export default axiosPrivate;
