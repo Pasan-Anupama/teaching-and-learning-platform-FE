@@ -19,5 +19,7 @@ export interface StudentCreationType {
   olFirstCategory: OlFirstCategory | null;
   olSecondCategory: OlSecondCategory | null;
   olThirdCategory: OlThirdCategory | null;
+  password: string;
+  confirmPassword: string;
   s3Key: string;
 }

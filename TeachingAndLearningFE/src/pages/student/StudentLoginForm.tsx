@@ -29,6 +29,8 @@ const initialFormValues: StudentCreationType = {
   olFirstCategory: null,
   olSecondCategory: null,
   olThirdCategory: null,
+  password: "",
+  confirmPassword: "",
   s3Key: "",
 };
 
@@ -188,22 +190,26 @@ const StudentLoginForm = () => {
     useState<StudentCreationType>(initialFormValues);
 
   const handleSubmit = async () => {
-    try {
-      await axios.post(STUDENT_DETAILS_ADD_URL, formData);
-      toast.success("Student Data added successfully !");
-    } catch (error: unknown) {
-      const axiosError = error as AxiosError;
-      if (axiosError.response) {
-        const status = axiosError.response.status;
+    if (formData.password === formData.confirmPassword) {
+      try {
+        await axios.post(STUDENT_DETAILS_ADD_URL, formData);
+        toast.success("Student Data added successfully !");
+      } catch (error: unknown) {
+        const axiosError = error as AxiosError;
+        if (axiosError.response) {
+          const status = axiosError.response.status;
 
-        if (status === 400 || status === 404) {
-          toast.error("No Server Response !");
-        } else if (status === 500) {
-          toast.error("Internal Server Error: Please try again later!");
+          if (status === 400 || status === 404) {
+            toast.error("No Server Response !");
+          } else if (status === 500) {
+            toast.error("Internal Server Error: Please try again later!");
+          }
+        } else {
+          toast.error("Network Error: Please check your internet connection!");
         }
-      } else {
-        toast.error("Network Error: Please check your internet connection!");
       }
+    } else {
+      toast.error("Password and ConformPassword are not Matching !");
     }
   };
 
@@ -416,6 +422,39 @@ const StudentLoginForm = () => {
                     </Col>
                   </>
                 ) : null}
+
+                <Col xs={12} sm={6} md={6}>
+                  <Form.Group>
+                    <Form.Label>
+                      Password <span className="text-red">*</span>
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      className="form-control"
+                      placeholder="Plsease Enter a Password"
+                      name="password"
+                      required
+                      value={formData.password}
+                      onChange={OnChangeText(formData, setFormData)}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col xs={12} sm={6} md={6}>
+                  <Form.Group>
+                    <Form.Label>
+                      Confirm Password <span className="text-red">*</span>
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      className="form-control"
+                      placeholder="Plsease Confirm the Password"
+                      name="confirmPassword"
+                      required
+                      value={formData.confirmPassword}
+                      onChange={OnChangeText(formData, setFormData)}
+                    />
+                  </Form.Group>
+                </Col>
               </Row>
             </Form>
           </Card.Body>
