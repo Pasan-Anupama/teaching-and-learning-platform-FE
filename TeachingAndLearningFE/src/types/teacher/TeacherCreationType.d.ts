@@ -28,5 +28,8 @@ export interface TeacherCreationType {
   artSubjects?: ArtSubjects | null;
   technologySubjects?: TechnologySubjects | null;
   olSubjects?: OlSubjcts | null;
+  password: string;
+  confirmPassword: string;
   certificatesUpload?: string;
+  approvalStatus?: string | null;
 }
